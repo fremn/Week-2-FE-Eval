@@ -83,20 +83,7 @@
     var libraryTemplateHtml = $('#templates .book').html();
     var libraryTemplate = _.template(libraryTemplateHtml);
     
-    var books = [
-      { 
-        title: 'Narnia',
-        author: 'tolken',
-        status: 'available'
-      },
-
-      { 
-        title: 'HARRY POTTER',
-        author: 'J Rowling',
-        status: 'available'
-      }
-    ];
-
+    var books = [];
 
     var renderLibrary = function (){
       for (var i = 0; i < books.length; i +=1) {
@@ -104,26 +91,32 @@
 
         var newBookHtml = libraryTemplate(b);
         //var newScoreHtml = scoreTemplate(scores[i]);
+
         $('#library').append(newBookHtml);
+
       } 
     };
 
-    renderLibrary();
+    
 
 
     $('#submit').on('click', function () {
       var title = $("#title").val();
       var author = $("#author").val();
 
-      var newBookHtml = libraryTemplate({ 
+      var newBookHtml = { 
         title: title, 
         author: author,
         status: "available"
-      });
+      };
         
-      $('#library').append(newBookHtml);
+      books.push(newBookHtml)
+
+      $('#library').empty();
+      
+      renderLibrary();
     });
-  
+    
 
   </script>
 

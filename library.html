@@ -25,13 +25,31 @@
         padding: 0;
         text-transform: capitalize;
       }
+      .new {
+        background-color: #eee;
+        float:left;
+        margin: 5px;
+        padding: 5px;  
+      }
+      .new h2 {
+        text-align: center;
+      }
+      #submit, input {
+        float: right;
+      }
     </style>
   </head>
   <body>
 
     <h1>THE LIBRARY</h1>
 
-
+    <div class="New">
+      <h2> Add Book</h2>
+      <p> Book Title:<input id="title" type="text"></input> </p>
+      <p> Author:<input id="author" type="text"></input></p>
+      <input id="submit" type="button" value="submit">
+    </div>
+   
     <div id="library">
         
     </div>
@@ -78,7 +96,25 @@
       };
 
       renderLibrary()
-      
+
+
+    $('#submit').on('click', function () {
+      var title = $("#title").val();
+      var author = $("#author").val();
+
+      var newBookHtml = libraryTemplate(
+        { 
+          title: title, 
+          author: author,
+          status: "available"
+        }
+      );
+        
+      $('#library').append(newBookHtml); 
+ 
+    });
+    
+
     </script>
 
     <small>It's back.</small>

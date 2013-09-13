@@ -23,11 +23,18 @@
     <h1>THE LIBRARY</h1>
 
 
-    <div id="library"></div>
-      
-
+    <div id="library">
+        
+    </div>
+    
     <div id="templates">
-
+      <script class="library" type="text/template">
+        <div class="book">
+            <h3> <%= title%></h3>
+            <h5> <%= author%></h5>
+            <h5> <%= status%></h5>
+        </div>
+      </script>
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -35,8 +42,8 @@
     <script type="text/javascript">
       
       var book = { 
-        title: 'Narnia'
-        author: 'tolken'
+        title: 'Narnia',
+        author: 'tolken',
         status: 'available'
       };
 

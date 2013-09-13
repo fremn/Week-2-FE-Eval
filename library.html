@@ -67,15 +67,18 @@
       ];
 
 
+      var renderLibrary = function (){
+        for (var i = 0; i < books.length; i +=1) {
+          var b = books[i];
 
-      for (var i = 0; i < books.length; i +=1) {
-        var b = books[i];
+          var newBookHtml = libraryTemplate(b);
+          //var newScoreHtml = scoreTemplate(scores[i]);
+          $('#library').append(newBookHtml);
+        } 
+      };
 
-        var newBookHtml = libraryTemplate(b);
-        //var newScoreHtml = scoreTemplate(scores[i]);
-        $('#library').append(newBookHtml);
-      }; 
-
+      renderLibrary()
+      
     </script>
 
     <small>It's back.</small>
